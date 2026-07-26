@@ -43,8 +43,4 @@ pub(crate) fn handle(args: CliArgs) {
             }
         }
     }
-
-    todo!(
-        "add the rest of the handler"
-    )
 }
