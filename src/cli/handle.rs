@@ -30,8 +30,6 @@ pub(crate) fn handle(args: CliArgs) {
                 exit(1)
             }
         };
-    } else {
-        false;
     }
 
     if let Some(registration) = args.registration {
