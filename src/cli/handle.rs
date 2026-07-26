@@ -10,14 +10,9 @@ pub(crate) fn handle(args: CliArgs) {
     let mut altitude: bool = false;
     let mut progress: bool = true;
 
-    if args.altitude && args.progress {
-        eprintln!("[ERROR] Tags '--altitude' and '--progress' cannot be used together");
-        eprintln!("[ERROR] Consider using '--all'");
-    } else {
-        if args.altitude {
-            altitude = args.altitude;
-            progress = false;
-        }
+    if args.altitude {
+        altitude = args.altitude;
+        progress = false;
     }
 
     if let Some(callsign) = args.callsign {
