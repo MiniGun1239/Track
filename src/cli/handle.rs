@@ -33,9 +33,15 @@ pub(crate) fn handle(args: CliArgs) {
     }
 
     if let Some(registration) = args.registration {
-        todo!(
-            "smth"
-        )
+        match registration::verify(registration) {
+            Ok(clean_registration) => {
+                registration::handle(clean_registration, progress, altitude, args.full, args.once);
+            },
+            Err(e) => {
+                eprintln!("{:?}", e);
+                exit(1)
+            }
+        }
     }
 
     todo!(
