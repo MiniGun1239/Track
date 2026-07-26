@@ -26,7 +26,7 @@ pub(crate) fn handle(args: CliArgs) {
                 callsign::handle(clean_callsign, progress, altitude, args.full, args.once);
             },
             Err(e) => {
-                eprintln!("{}", e);
+                eprintln!("{:?}", e);
                 exit(1)
             }
         };
