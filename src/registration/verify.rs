@@ -1,6 +1,7 @@
 use std::sync::OnceLock;
 use regex::Regex;
 
+#[derive(Debug)]
 pub enum ValidationError {
     InvalidLength,
     InvalidFormat,
