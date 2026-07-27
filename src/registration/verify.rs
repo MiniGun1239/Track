@@ -30,7 +30,7 @@ pub(crate) fn verify(input: String) -> Result<String, ValidationError> {
 fn normalize(input: String) -> String {
     input
         .chars()
-        .filter(|c| !c.is_whitespace() && *c != '-')
+        .filter(|c| !c.is_whitespace())
         .map(|c| c.to_ascii_uppercase())
         .collect()
 }
