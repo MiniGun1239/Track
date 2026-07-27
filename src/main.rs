@@ -1,3 +1,9 @@
+pub mod cli;
+pub mod callsign;
+pub mod registration;
+pub mod api;
+pub mod other;
+
 use crate::cli::cli_args::CliArgs;
 use crate::cli::handle;
 use crate::cli::parse_flags::parse;
