@@ -8,6 +8,6 @@ pub(crate) fn get_telemetry(
     let url = format!("https://api.adsb.lol/v2/{}", endpoint_url);
 
     todo!(
-        "remplement api::get_telemetry"
+        "reimplement api::get_telemetry"
     )
 }
