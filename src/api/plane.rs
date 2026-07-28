@@ -1,7 +1,7 @@
 use reqwest::Client;
 use crate::other::data::AircraftData;
 
-pub(crate) fn get_telemetry(
+pub(crate) fn data(
     client: Client,
     endpoint_url: &str, // "callsign/{callsign}" or "registration/{reg}"
 ) -> Result<Option<AircraftData>, Box<dyn std::error::Error>> {
