@@ -35,3 +35,9 @@ pub(crate) struct AirportData {
 
     pub(crate) alt_feet: f32
 }
+
+#[derive(Deserialize, Debug, Clone)]
+pub(crate) struct RouteResponse {
+    #[serde(rename = "_airports")]
+    pub(crate) airports: Option<Vec<AirportData>>,
+}
