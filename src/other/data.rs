@@ -6,6 +6,12 @@ pub(crate) struct AdsbLOLResponse {
 }
 
 #[derive(Deserialize, Debug, Clone)]
+pub(crate) struct RouteResponse {
+    #[serde(rename = "_airports")]
+    pub(crate) airports: Option<Vec<AirportData>>,
+}
+
+#[derive(Deserialize, Debug, Clone)]
 pub(crate) struct AircraftData {
     pub(crate) flight: Option<String>,
     pub(crate) t: Option<String>,
