@@ -1,43 +1,43 @@
 use serde::Deserialize;
 
 #[derive(Deserialize, Debug, Clone)]
-pub(crate) struct AdsbLOLResponse {
-    pub(crate) response: Option<Vec<AircraftData>>
+pub struct AdsbLOLResponse {
+    pub response: Option<Vec<AircraftData>>
 }
 
 #[derive(Deserialize, Debug, Clone)]
-pub(crate) struct RouteResponse {
+pub struct RouteResponse {
     #[serde(rename = "_airports")]
-    pub(crate) airports: Option<Vec<AirportData>>,
+    pub airports: Option<Vec<AirportData>>,
 }
 
 #[derive(Deserialize, Debug, Clone)]
-pub(crate) struct AircraftData {
-    pub(crate) flight: Option<String>,
-    pub(crate) t: Option<String>,
-    pub(crate) r: Option<String>,
-    pub(crate) alt_baro: Option<String>,
+pub struct AircraftData {
+    pub flight: Option<String>,
+    pub t: Option<String>,
+    pub r: Option<String>,
+    pub alt_baro: Option<String>,
 
-    pub(crate) gs: Option<f32>,
-    pub(crate) track: Option<f32>,
+    pub gs: Option<f32>,
+    pub track: Option<f32>,
 
-    pub(crate) lat: Option<f64>,
-    pub(crate) lon: Option<f64>,
+    pub lat: Option<f64>,
+    pub lon: Option<f64>,
 }
 
 #[derive(Deserialize, Debug, Clone)]
-pub(crate) struct AirportData {
-    pub(crate) name: String,
+pub struct AirportData {
+    pub name: String,
 
-    pub(crate) iata: String,
-    pub(crate) icao: String,
+    pub iata: String,
+    pub icao: String,
 
     #[serde(rename = "countryiso2")]
-    pub(crate) country: String,
-    pub(crate) location: String,
+    pub country: String,
+    pub location: String,
 
-    pub(crate) lat: f64,
-    pub(crate) lon: f64,
+    pub lat: f64,
+    pub lon: f64,
 
-    pub(crate) alt_feet: f32
+    pub alt_feet: f32
 }
