@@ -21,10 +21,17 @@ pub(crate) struct AircraftData {
 
 #[derive(Deserialize, Debug, Clone)]
 pub(crate) struct AirportData {
-    pub(crate) countryiso2: Option<String>,
-    pub(crate) iata: Option<String>,
-    pub(crate) icao: Option<String>,
+    pub(crate) name: String,
 
-    pub(crate) lat: Option<f32>,
-    pub(crate) lon: Option<f32>,
+    pub(crate) iata: String,
+    pub(crate) icao: String,
+
+    #[serde(rename = "countryiso2")]
+    pub(crate) country: String,
+    pub(crate) location: String,
+
+    pub(crate) lat: f64,
+    pub(crate) lon: f64,
+
+    pub(crate) alt_feet: f32
 }
