@@ -3,9 +3,9 @@ use crate::other::data::AircraftData;
 
 pub(crate) fn data(
     client: Client,
-    endpoint_url: &str, // "callsign/{callsign}" or "registration/{reg}"
+    url_endpoint: &str, // "callsign/{callsign}" or "registration/{reg}"
 ) -> Result<Option<AircraftData>, Box<dyn std::error::Error>> {
-    let url = format!("https://api.adsb.lol/v2/{}", endpoint_url);
+    let url = format!("https://api.adsb.lol/v2/{}", url_endpoint);
 
     todo!(
         "reimplement api::get_telemetry"

@@ -15,13 +15,13 @@ pub(crate) fn handle(callsign: String, progress: bool, altitude: bool, full: boo
         }
     }
 
-    let endpoint_url: String = format!("callsign/{}", callsign);
+    let url_endpoint: String = format!("callsign/{}", callsign);
 
-    let plane_data: Option<AircraftData>;
+    let plane_data: AircraftData;
 
-    match api::plane_data(client, &*endpoint_url) {
+    match api::plane_data(client, &*url_endpoint) {
         Ok(_plane_data) => {
-            plane_data = _plane_data;
+            plane_data = _plane_data.unwrap();
         }
         Err(e) => {
             eprintln!("Error getting plane data: {}", e);
