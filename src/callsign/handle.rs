@@ -29,7 +29,39 @@ pub(crate) fn handle(callsign: String, progress: bool, altitude: bool, full: boo
         }
     }
 
-    todo!(
-        "call output, comparing prog, alt, full and once"
-    )
+    if progress {
+        if once {
+            todo!(
+                "output progress only once, minimally"
+            )
+        }
+
+        todo!(
+            "call output of progress"
+        )
+    }
+    
+    if altitude {
+        if once {
+            todo!(
+                "output altitude only once, minimally"
+            )
+        }
+        
+        todo!(
+            "call output of altitude"
+        )
+    }
+
+    if full {
+        if once {
+            todo!(
+                "output everything, but only once"
+            )
+        }
+        
+        todo!(
+            "call output everything"
+        )
+    }
 }
