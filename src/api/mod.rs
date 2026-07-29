@@ -10,8 +10,8 @@ pub fn client() -> reqwest::Result<Client> {
     client::get()
 }
 
-pub fn plane_data(client: Client, url_endpoint: &str) -> Result<Option<AircraftData>, Box<dyn Error>> {
-    plane::data(client, url_endpoint)
+pub async fn plane_data(client: Client, url_endpoint: &str) -> Result<Option<AircraftData>, Box<dyn Error>> {
+    plane::data(client, url_endpoint).await
 }
 
 pub fn route_data(client: Client, url_endpoint: &str) -> Result<Option<RouteResponse>, Box<dyn Error>> {
