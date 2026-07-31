@@ -26,7 +26,7 @@ pub(crate) fn distance_ratio(
         (lat_dest, lon_dest)
     );
 
-    100.0 - ((dep_dest_distance / plane_airport_distance) * 100.0)
+    dep_dest_distance / plane_airport_distance
 }
 
 
