@@ -26,12 +26,12 @@ pub(crate) fn distance_ratio(
         (lat_dest, lon_dest)
     );
 
-    (dep_dest_distance / plane_airport_distance) * 100.0
+    100.0 - ((dep_dest_distance / plane_airport_distance) * 100.0)
 }
 
 
 fn haversine_formula(
-    (lat_1, lon_1): (f64, f64), 
+    (lat_1, lon_1): (f64, f64),
     (lat_2, lon_2): (f64, f64)
 ) -> f64 {
 // Formula:
