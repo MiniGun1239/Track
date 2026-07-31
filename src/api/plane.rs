@@ -1,13 +1,23 @@
+use crate::other::data::{AircraftData, FlightResponse};
 use reqwest::Client;
-use crate::other::data::AircraftData;
 
-pub(crate) fn data(
+pub(crate) async fn data(
     client: Client,
     url_endpoint: &str, // "callsign/{callsign}" or "registration/{reg}"
 ) -> Result<Option<AircraftData>, Box<dyn std::error::Error>> {
     let url = format!("https://api.adsb.lol/v2/{}", url_endpoint);
 
-    todo!(
-        "reimplement api::get_telemetry"
-    )
+    let response = client.get(&url).send().await?;
+
+    if response.status().is_success() {
+        let payload: FlightResponse = response.json().await?;
+
+        if let Some(mut aircraft_list) = payload.ac {
+            if !aircraft_list.is_empty() {
+                return Ok(Some(aircraft_list.remove(0)))
+            }
+        }
+    }
+
+    Ok(None)
 }

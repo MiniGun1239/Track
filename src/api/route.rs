@@ -1,13 +1,23 @@
+use crate::other::data::{AirportData, RouteResponse};
 use reqwest::Client;
-use crate::other::data::RouteResponse;
 
-pub(crate) fn data(
+pub(crate) async fn data(
     client: Client,
     url_endpoint: &str,
-) -> Result<Option<RouteResponse>, Box<dyn std::error::Error>> {
+) -> Result<Option<Vec<AirportData>>, Box<dyn std::error::Error>> {
     let url = format!("https://vrs-standing-data.adsb.lol/routes/{}.json", url_endpoint);
 
-    todo!(
-        "implement this shi"
-    )
+    let response = client.get(&url).send().await?;
+
+    if response.status().is_success() {
+        let payload: RouteResponse = response.json().await?;
+
+        if let Some(route) = payload.airports {
+            if !route.is_empty() {
+                return Ok(Some(route))
+            }
+        }
+    }
+
+    Ok(None)
 }

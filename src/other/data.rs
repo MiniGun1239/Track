@@ -1,8 +1,8 @@
 use serde::Deserialize;
 
 #[derive(Deserialize, Debug, Clone)]
-pub struct AdsbLOLResponse {
-    pub response: Option<Vec<AircraftData>>
+pub struct FlightResponse {
+    pub ac: Option<Vec<AircraftData>>
 }
 
 #[derive(Deserialize, Debug, Clone)]
