@@ -1,4 +1,7 @@
-use crate::other::data::{AircraftData, FlightResponse};
+use crate::other::data::{
+    AircraftData,
+    FlightResponse
+};
 use reqwest::Client;
 
 pub(crate) async fn data(

@@ -1,4 +1,7 @@
-use clap::{Parser, ArgGroup};
+use clap::{
+    ArgGroup, 
+    Parser
+};
 
 #[derive(Parser, Debug)]
 #[command(

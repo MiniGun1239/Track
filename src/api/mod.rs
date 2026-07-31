@@ -1,6 +1,9 @@
-use std::error::Error;
+use crate::other::data::{
+    AircraftData,
+    AirportData
+};
 use reqwest::Client;
-use crate::other::data::{AircraftData, AirportData};
+use std::error::Error;
 
 pub mod client;
 pub mod plane;

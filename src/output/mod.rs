@@ -26,7 +26,7 @@ pub(crate) fn full(plane_data: Option<AircraftData>) {
 // once
 pub(crate) fn progress_once(plane_data: Option<AircraftData>) {
     todo!(
-        "call progres::once"
+        "call progress::once"
     )
 }
 

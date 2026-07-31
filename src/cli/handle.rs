@@ -1,9 +1,9 @@
-use std::process::exit;
+use crate::cli::cli_args::CliArgs;
 use crate::{
     callsign,
     registration
 };
-use crate::cli::cli_args::CliArgs;
+use std::process::exit;
 
 
 pub(crate) fn handle(args: CliArgs) {

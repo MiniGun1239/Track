@@ -1,4 +1,7 @@
-use crate::other::data::{AirportData, RouteResponse};
+use crate::other::data::{
+    AirportData,
+    RouteResponse
+};
 use reqwest::Client;
 
 pub(crate) async fn data(
