@@ -19,7 +19,7 @@ pub(crate) async fn handle(callsign: String, progress: bool, altitude: bool, ful
 
     other::prepare(
         client,
-        &*url_endpoint,
+        url_endpoint.as_str(),
         
         progress,
         altitude,
