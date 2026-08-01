@@ -4,7 +4,15 @@ use crate::{
 };
 use std::process::exit;
 
-pub(crate) async fn handle(callsign: String, progress: bool, altitude: bool, full: bool, once: bool) {
+pub(crate) async fn handle(
+    callsign: String, 
+    
+    progress: bool, 
+    altitude: bool, 
+    full: bool, 
+    
+    once: bool
+) {
     let client: reqwest::Client;
 
     match api::client() {
