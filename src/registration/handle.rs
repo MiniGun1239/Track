@@ -7,7 +7,12 @@ use std::process::exit;
 pub(crate) async fn handle(
     registration: String,
 
-pub(crate) async fn handle(registration: String, progress: bool, altitude: bool, full: bool, once: bool) {
+    progress: bool,
+    altitude: bool,
+    full: bool,
+
+    once: bool
+) {
     let client: reqwest::Client;
 
     match api::client() {
