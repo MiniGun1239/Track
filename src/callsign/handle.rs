@@ -1,5 +1,7 @@
-use crate::api;
-use crate::other::data::AircraftData;
+use crate::{
+    api,
+    other
+};
 use std::process::exit;
 
 pub(crate) async fn handle(callsign: String, progress: bool, altitude: bool, full: bool, once: bool) {
