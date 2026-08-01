@@ -17,50 +17,14 @@ pub(crate) async fn handle(callsign: String, progress: bool, altitude: bool, ful
 
     let url_endpoint: String = format!("callsign/{}", callsign);
 
-    let plane_data: Option<AircraftData>;
-
-    match api::plane_data(client, &*url_endpoint).await {
-        Ok(_plane_data) => {
-            plane_data = _plane_data;
-        }
-        Err(e) => {
-            eprintln!("Error getting plane_data: {}", e);
-        }
-    }
-
-    if progress {
-        if once {
-            todo!(
-                "call output::progress_once()"
-            )
-        }
-
-        todo!(
-            "call output::progress()"
-        )
-    }
-    
-    if altitude {
-        if once {
-            todo!(
-                "call output::altitude_once()"
-            )
-        }
+    other::prepare(
+        client,
+        &*url_endpoint,
         
-        todo!(
-            "call output::altitude()"
-        )
-    }
-
-    if full {
-        if once {
-            todo!(
-                "call output::full_once()"
-            )
-        }
+        progress,
+        altitude,
+        full,
         
-        todo!(
-            "call output::full()"
-        )
-    }
+        once
+    ).await;
 }
