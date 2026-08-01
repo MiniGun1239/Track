@@ -3,8 +3,9 @@ use crate::{
     other
 };
 use std::process::exit;
-use crate::api;
-use crate::other::data::AircraftData;
+
+pub(crate) async fn handle(
+    registration: String,
 
 pub(crate) async fn handle(registration: String, progress: bool, altitude: bool, full: bool, once: bool) {
     let client: reqwest::Client;
