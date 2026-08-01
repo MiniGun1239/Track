@@ -17,50 +17,14 @@ pub(crate) async fn handle(registration: String, progress: bool, altitude: bool,
 
     let url_endpoint: String = format!("registration/{}", registration);
 
-    let plane_data: Option<AircraftData>;
+    other::prepare(
+        client,
+        url_endpoint.as_str(),
 
-    match api::plane_data(client, &*url_endpoint).await {
-        Ok(_plane_data) => {
-            plane_data = _plane_data;
-        },
-        Err(e) => {
-            eprintln!("Error getting plane_data: {}", e);
-        }
-    }
+        progress,
+        altitude,
+        full,
 
-    if progress {
-        if once {
-            todo!(
-                "call output::progress_once()"
-            )
-        }
-
-        todo!(
-            "call output::progress()"
-        )
-    }
-
-    if altitude {
-        if once {
-            todo!(
-                "call output::altitude_once()"
-            )
-        }
-
-        todo!(
-            "call output::altitude()"
-        )
-    }
-
-    if full {
-        if once {
-            todo!(
-                "call output::full_once()"
-            )
-        }
-
-        todo!(
-            "call output::full()"
-        )
-    }
+        once
+    ).await;
 }
