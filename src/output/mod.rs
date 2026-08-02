@@ -28,7 +28,7 @@ pub(crate) fn progress(
     dest_airport: &str,
 ) {
     todo!(
-        "call progress::regular"
+        "call progress::output"
     )
 }
 
