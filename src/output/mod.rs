@@ -1,5 +1,3 @@
-use crate::other::data::AircraftData;
-
 pub(crate) mod progress;
 pub(crate) mod altitude;
 pub(crate) mod full;
