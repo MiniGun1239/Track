@@ -40,6 +40,6 @@ pub(crate) fn altitude(plane_data: Option<AircraftData>) {
 
 pub(crate) fn full(plane_data: Option<AircraftData>) {
     todo!(
-        "call full::regular"
+        "call full::output"
     )
 }
