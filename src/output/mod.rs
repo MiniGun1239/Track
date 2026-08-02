@@ -21,23 +21,3 @@ pub(crate) fn full(plane_data: Option<AircraftData>) {
         "call full::regular"
     )
 }
-
-
-// once
-pub(crate) fn progress_once(plane_data: Option<AircraftData>) {
-    todo!(
-        "call progress::once"
-    )
-}
-
-pub(crate) fn altitude_once(plane_data: Option<AircraftData>) {
-    todo!(
-        "call altitude::once"
-    )
-}
-
-pub(crate) fn full_once(plane_data: Option<AircraftData>) {
-    todo!(
-        "call full::once"
-    )
-}
