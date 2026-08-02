@@ -34,7 +34,7 @@ pub(crate) fn progress(
 
 pub(crate) fn altitude(plane_data: Option<AircraftData>) {
     todo!(
-        "call altitude::regular"
+        "call altitude::output"
     )
 }
 
