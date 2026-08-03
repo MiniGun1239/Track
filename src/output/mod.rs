@@ -16,6 +16,7 @@ pub(crate) fn progress(
     )
 }
 
+
 pub(crate) fn altitude(
     callsign: String,
     reg: String,
