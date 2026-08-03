@@ -102,7 +102,7 @@ fn call_output(
             };
 
             send(output::progress);
-            
+
             if once {
                 exit(0)
             }

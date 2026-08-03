@@ -12,7 +12,11 @@ pub(crate) async fn data(
 
     let response = client.get(&url).send().await?;
 
-    if response.status().is_success() {
+    let status = response.status();
+
+    let statustext = status.to_string();
+
+    if status.is_success() {
         let payload: FlightResponse = response.json().await?;
 
         if let Some(mut aircraft_list) = payload.ac {
@@ -20,6 +24,8 @@ pub(crate) async fn data(
                 return Ok(Some(aircraft_list.remove(0)))
             }
         }
+    } else {
+        return Err(status.to_string().into())
     }
 
     Ok(None)
