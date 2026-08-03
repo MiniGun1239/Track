@@ -1,27 +1,7 @@
-use crate::{
-    api,
-    other
-};
-use std::process::exit;
+use crate::other;
 
-pub(crate) async fn handle(
-    registration: String,
-
-    progress: bool,
-    altitude: bool,
-    full: bool,
-
-    once: bool
-) {
+pub(crate) async fn handle(registration: String, once: bool) {
     let url_endpoint: String = format!("registration/{}", registration);
 
-    other::prepare(
-        url_endpoint.as_str(),
-
-        progress,
-        altitude,
-        full,
-
-        once
-    ).await;
+    other::prepare(url_endpoint.as_str(), once).await;
 }

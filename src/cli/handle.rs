@@ -7,18 +7,10 @@ use std::process::exit;
 
 
 pub(crate) async fn handle(args: CliArgs) {
-    let mut altitude: bool = false;
-    let mut progress: bool = true;
-
-    if args.altitude {
-        altitude = args.altitude;
-        progress = false;
-    }
-
     if let Some(callsign) = args.callsign {
         match callsign::verify(callsign) {
             Ok(clean_callsign) => {
-                callsign::handle(clean_callsign, progress, altitude, args.full, args.once).await;
+                callsign::handle(clean_callsign, args.once).await;
             },
             Err(e) => {
                 eprintln!("{:?}", e);
@@ -30,7 +22,7 @@ pub(crate) async fn handle(args: CliArgs) {
     if let Some(registration) = args.registration {
         match registration::verify(registration) {
             Ok(clean_registration) => {
-                registration::handle(clean_registration, progress, altitude, args.full, args.once).await;
+                registration::handle(clean_registration, args.once).await;
             },
             Err(e) => {
                 eprintln!("{:?}", e);

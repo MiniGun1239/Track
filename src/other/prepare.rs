@@ -3,16 +3,7 @@ use crate::{api, output};
 use crate::other::data::{AircraftData, AirportData};
 use reqwest::Client;
 
-pub(crate) async fn prepare_output(
-    client: Client,
-    plane_url_endpoint: &str,
-
-    progress: bool,
-    altitude: bool,
-    full: bool,
-
-    once: bool,
-) {
+pub(crate) async fn prepare_output(client: Client, plane_url_endpoint: &str, once: bool, ) {
     let (plane_data, route_data): (
         Option<AircraftData>,
         Option<Vec<AirportData>>
@@ -21,11 +12,7 @@ pub(crate) async fn prepare_output(
         plane_url_endpoint,
     ).await;
 
-    call_output(
-        plane_data, route_data,
-        progress, altitude, full, 
-        once
-    )
+    call_output(plane_data, route_data, once)
 }
 
 async fn get_plane_and_route(
@@ -75,10 +62,6 @@ fn call_output(
     plane_data: Option<AircraftData>,
     route_data: Option<Vec<AirportData>>,
 
-    progress: bool,
-    altitude: bool,
-    full: bool,
-
     once: bool
 ) {
     if let Some(plane) = plane_data {
@@ -118,28 +101,10 @@ fn call_output(
                 )
             };
 
-            if progress {
-                send(output::progress);
-
-                if once {
-                    exit(0)
-                }
-            }
-
-            else if altitude {
-                send(output::altitude);
-
-                if once {
-                    exit(0)
-                }
-            }
-
-            else if full {
-                send(output::full);
-
-                if once {
-                    exit(0)
-                }
+            send(output::progress);
+            
+            if once {
+                exit(0)
             }
         }
     }

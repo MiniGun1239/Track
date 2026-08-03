@@ -14,11 +14,6 @@ use clap::{
         .required(true)
         .args(["callsign","registration"]))
 )]
-#[command(
-    group(ArgGroup::new("what_output")
-        .required(false)
-        .args(["progress", "altitude", "full"]))
-)]
 pub struct CliArgs {
     // Type of input
     #[arg(
@@ -32,28 +27,6 @@ pub struct CliArgs {
         long = "registration",
     )]
     pub registration: Option<String>,
-
-
-    // What to output
-    #[arg(
-        short = 'p',
-        long = "progress",
-        default_value = "true",
-    )]
-    pub progress: bool,
-
-    #[arg(
-        short = 'a',
-        long = "altitude",
-        alias = "alt",
-    )]
-    pub altitude: bool,
-    
-    #[arg(
-        short = 'f',
-        long = "full",
-    )]
-    pub full: bool,
 
 
     // How to output

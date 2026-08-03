@@ -37,16 +37,8 @@ pub fn distance_ratio(
 // PREPARE
 
 
-pub async fn prepare(
-    plane_url_endpoint: &str,
-
-    progress: bool,
-    altitude: bool,
-    full: bool,
-
-    once: bool
-) {
-    while true {
+pub async fn prepare(plane_url_endpoint: &str, once: bool) {
+    loop {
         let client: reqwest::Client;
 
         match api::client() {
@@ -61,7 +53,6 @@ pub async fn prepare(
 
         prep::prepare_output(
             client, plane_url_endpoint,
-            progress, altitude, full,
             once
         ).await;
 
