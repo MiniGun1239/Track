@@ -14,7 +14,7 @@ pub(crate) async fn data(
 
     let status = response.status();
 
-    let statustext = status.to_string();
+    let _statustext = status.to_string();
 
     if status.is_success() {
         let payload: FlightResponse = response.json().await?;
