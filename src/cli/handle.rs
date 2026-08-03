@@ -6,7 +6,7 @@ use crate::{
 use std::process::exit;
 
 
-pub(crate) fn handle(args: CliArgs) {
+pub(crate) async fn handle(args: CliArgs) {
     let mut altitude: bool = false;
     let mut progress: bool = true;
 
@@ -18,7 +18,7 @@ pub(crate) fn handle(args: CliArgs) {
     if let Some(callsign) = args.callsign {
         match callsign::verify(callsign) {
             Ok(clean_callsign) => {
-                callsign::handle(clean_callsign, progress, altitude, args.full, args.once);
+                callsign::handle(clean_callsign, progress, altitude, args.full, args.once).await;
             },
             Err(e) => {
                 eprintln!("{:?}", e);
@@ -30,7 +30,7 @@ pub(crate) fn handle(args: CliArgs) {
     if let Some(registration) = args.registration {
         match registration::verify(registration) {
             Ok(clean_registration) => {
-                registration::handle(clean_registration, progress, altitude, args.full, args.once);
+                registration::handle(clean_registration, progress, altitude, args.full, args.once).await;
             },
             Err(e) => {
                 eprintln!("{:?}", e);

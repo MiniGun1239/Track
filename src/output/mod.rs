@@ -1,3 +1,5 @@
+use crate::other;
+
 pub(crate) mod progress;
 pub(crate) mod altitude;
 pub(crate) mod full;

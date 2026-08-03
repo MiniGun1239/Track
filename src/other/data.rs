@@ -11,7 +11,7 @@ pub struct RouteResponse {
     pub airports: Option<Vec<AirportData>>,
 }
 
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Debug, Clone, Default)]
 pub struct AircraftData {
     pub flight: Option<String>,
     //  type
