@@ -46,7 +46,7 @@ fn print_output(
     let empty_blocks = bar_width - filled_blocks;
 
     let filled_track = "█".repeat(filled_blocks);
-    let empty_track = "░".repeat(empty_blocks);
+            let empty_track  = "░".repeat(empty_blocks);
 
     println!(
         "Callsign: {:8} | Altitude: {:8}ft | Speed {:3.0}kts",
