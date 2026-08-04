@@ -178,7 +178,7 @@ def outputShi(
         travelRemaining: float, isFirst: bool
 ):
     if not isFirst:
-        sys.stdout.write("\x1b[5A\x1b[J")
+        sys.stdout.write("\x1b[4A\r\x1b[J")
         sys.stdout.flush()
 
     bar_length = 50
@@ -193,8 +193,8 @@ def outputShi(
     spaces = max(1, spaces)
 
     sys.stdout.write(f"Callsign: {plane.callsign} | Altitude: {plane.altitude} | Speed: {plane.ground_speed}\n")
-    sys.stdout.write(f"Type: {plane.type} | Tail: {plane.registration}\n")
-    sys.stdout.write(f"  [{filled_track}{remaining_track}] {(travelRemaining * 100):.2f}%\n")
+    sys.stdout.write(f"Type: {plane.type} | Tail: {plane.registration} | Progress: {(travelRemaining * 100):.2f}%\n")
+    sys.stdout.write(f"  [{filled_track}{remaining_track}]\n")
     sys.stdout.write(f"{depAirport.location} - {depAirport.icao} ({depAirport.country}){" " * spaces}{destAirport.location} - {destAirport.icao} ({destAirport.country})\n")
 
     sys.stdout.flush()
@@ -202,10 +202,8 @@ def outputShi(
 
 # main, muehehehehehe
 def main():
-    # commented for testing
-    # callsign = get_callsign()
+    callsign = get_callsign()
 
-    callsign = "UAE353"
     isFirst = True
 
     while True:
