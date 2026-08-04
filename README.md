@@ -66,8 +66,8 @@ Not Supported
 
 ### Video demonstration (TBA):  
 
-* [Demonstration]()
-* [How to Download]()
+* [Demonstration](https://youtu.be/m_t-4qjGvSE)
+* [How to Download](https://youtu.be/d5zkCtXqlpM)
 
 ## Building from Source
 
