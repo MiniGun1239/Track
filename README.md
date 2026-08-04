@@ -30,7 +30,7 @@ Follow these simple steps to get a local copy up and running.
 
 ### Prerequisites
 
-None, i think, you may need a python (Unless you want to build it from source)
+None (Unless you want to build it from source)
 
 ### How to get this for yourselves:
 
