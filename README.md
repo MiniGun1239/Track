@@ -102,7 +102,7 @@ Not Supported
 > Coded and tested in Arch Linux, should work in any linux distro.
 
 
-### Examples
+### Examples (tested on Aug 4th, at 12:30 GMT+4)
 
 ```shell
 ./track
