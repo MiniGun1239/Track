@@ -134,4 +134,4 @@ Enter callsign: ups9
 ### Grievance
 
 This project was meant to be in rust, but i couldn't get rust to work so i switched to python, 
-keeping the archived rust files in rust_src if anyone wants to take a look, and/or help.
+keeping the archived Rust files in rust_src if anyone wants to take a look, and/or help.
