@@ -72,7 +72,7 @@ Not Supported
 ## Building from Source
 
 1. **Pre-requisites:**  
-   Need to install Python, and uv, or not, pip would also work
+   Need to install Python, and uv, or not, pip would also work, but i used uv
 
     ```shell
    sudo pacman -Syu python python-uv
