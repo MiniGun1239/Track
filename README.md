@@ -26,7 +26,7 @@ Fun chem app ("Fun" in very, very deep quotes, and very subjective)
 
 ## Getting Started
 
-Follow these simple steps to setup your local copy of track .
+Follow these simple steps to setup your local copy of track.
 
 ### Prerequisites
 
