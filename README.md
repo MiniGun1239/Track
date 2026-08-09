@@ -36,17 +36,18 @@ None (Unless you want to build it from source)
 
 **Download it**
 
-#### Linux
 Get the latest release from [GitHub](https://github.com/MiniGun1239/Track/releases)
 
->**Note:** The name of the executable will be "track-*", where * is the version number, 
+>**Note:** The name of the executable will be "track-*", where * is the version number,
 > remember to type the full name when executing like ```./track-* -V``` , or rename it from "track-*" to "track"
 
-> If you downloaded, most likely it is in the downloads directory, 
+> If you downloaded, most likely it is in the downloads directory,
 > so either move it to the home directory (/home/user/) or run ```cd ~/Downloads``` before
 > doing ```./track```
 
 Or download from command line, like this:
+
+#### Linux
 
 ```shell
 curl -L https://github.com/MiniGun1239/Track/releases/download/Release/track-1.0.0-x86_64-Linux -o track
@@ -62,7 +63,16 @@ Done!, add to path to run anywhere or run from home like:
 
 #### Windows
 
-Not Supported
+```shell
+curl -L https://github.com/MiniGun1239/Track/releases/download/Release/track-1.0.0-x86_64-Windows.exe -o track.exe
+```
+
+> Always check what you are running, don't run random commands you find on the internet.
+
+Done!, add to path to run anywhere or run from home like:
+```shell
+./track.exe
+```
 
 ### Video demonstration (TBA):  
 
@@ -72,11 +82,32 @@ Not Supported
 ## Building from Source
 
 1. **Pre-requisites:**  
-   Need to install Python, and uv, or not, pip would also work, but i used uv
+   - Need to install Python, no extra dependencies needed except for pyinstaller to compile  
+   - And uv, or not, pip would also work, but i used uv
+   
+   If installing uv:
 
-    ```shell
+   **Windows:**
+   ```shell
+   powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+   ```
+
+   **Arch Linux:**
+   ```shell
    sudo pacman -Syu python python-uv
    ```
+   
+   **Other distros:**  
+   - Option 1:
+   ```shell
+   pip install uv
+   ```
+   
+   - Option 2:
+   ```shell
+   curl -LsSf https://astral.sh/uv/install.sh | sh
+   ```
+
 
 2. **Clone the repository:**  
    ```shell
@@ -102,7 +133,7 @@ Not Supported
 > Coded and tested in Arch Linux, should work in any linux distro.
 
 
-### Examples (tested on Aug 4th, at 12:30 GMT+4)
+## Examples (tested on Aug 4th, at 12:30 GMT+4)
 
 ```shell
 ./track
@@ -135,3 +166,5 @@ Enter callsign: ups9
 
 This project was meant to be in rust, but i couldn't get rust to work so i switched to python, 
 keeping the archived Rust files in rust_src if anyone wants to take a look, and/or help.
+
+
