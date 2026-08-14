@@ -10,7 +10,7 @@ DEBUG = False
 
 # --- CLIENT ---
 headers = {
-    "User-Agent": "Track/0.1.0 (github.com/MiniGun1239/Track)"
+    "User-Agent": "Track/1.1.0 (github.com/MiniGun1239/Track)"
 }
 
 # --- DATA ---
