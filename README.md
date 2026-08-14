@@ -50,7 +50,7 @@ Or download from command line, like this:
 #### Linux
 
 ```shell
-curl -L https://github.com/MiniGun1239/Track/releases/download/Release/track-1.0.0-x86_64-Linux -o track
+curl -L https://github.com/MiniGun1239/Track/releases/download/Release-1.1.0/track-1.1.0-x86_64-Linux -o track
 chmod +x track
 ```
 
@@ -64,7 +64,7 @@ Done!, add to path to run anywhere or run from home like:
 #### Windows
 
 ```shell
-curl -L https://github.com/MiniGun1239/Track/releases/download/Release/track-1.0.0-x86_64-Windows.exe -o track.exe
+curl -L https://github.com/MiniGun1239/Track/releases/download/Release-1.1.0/track-1.1.0-x86_64-Windows.exe -o track.exe
 ```
 
 > Always check what you are running, don't run random commands you find on the internet.
@@ -82,7 +82,7 @@ Done!, add to path to run anywhere or run from home like:
 ## Building from Source
 
 1. **Pre-requisites:**  
-   - Need to install Python, no extra dependencies needed except for pyinstaller to compile  
+   - Need to install Python, no extra dependencies needed except for pyinstaller to compile
    - And uv, or not, pip would also work, but i used uv
    
    If installing uv:
