@@ -84,17 +84,17 @@ def get_flight(callsign):
             print("404")
             print("Flight not found, flight doesn't exist")
             print("Callsign may be incorrect")
-            exit(1)
+            sys.exit(1)
         else:
             print("get_flight_error")
             print(response.status_code)
-            exit(1)
+            sys.exit(1)
     except requests.exceptions.Timeout:
         print("request timed out, the api is ignoring us")
-        exit(1)
+        sys.exit(1)
     except requests.exceptions.RequestException as e:
         print(e)
-        exit(1)
+        sys.exit(1)
 
 
 # gets the route of planes using this callsign
@@ -126,17 +126,17 @@ def get_route(callsign):
             print("Possible reasons:")
             print("  - Flight Doesn't have a route")
             print("  - Flight has a route but adsb.lol doesn't have it in their database")
-            exit(1)
+            sys.exit(1)
         else:
             print("get_route error")
             print(response.status_code)
-            exit(1)
+            sys.exit(1)
     except requests.exceptions.Timeout:
         print("request timed out, the api is ignoring us")
-        exit(1)
+        sys.exit(1)
     except requests.exceptions.RequestException as e:
         print(e)
-        exit(1)
+        sys.exit(1)
 
 
 # smth smth comment
@@ -263,7 +263,7 @@ def main():
             print("  - Flight is not online")
             print("  - Flight finished flying")
             print("  - Flight has not started flying")
-            exit(1)
+            sys.exit(1)
 
         if isFirst:
             route_info = get_route(callsign)
