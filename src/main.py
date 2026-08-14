@@ -6,6 +6,8 @@ import requests
 import math
 
 
+DEBUG = False
+
 # --- CLIENT ---
 headers = {
     "User-Agent": "Track/0.1.0 (github.com/MiniGun1239/Track)"
@@ -43,6 +45,9 @@ class AirportData:
 def get_callsign():
     callsign_pattern = r"^[A-Z]{3}\d{1,4}[A-Z]{0,2}$"
 
+    if DEBUG:
+        print("[DEBUG (get_callsign)] Getting callsign")
+
     while True:
         callsign = input("Enter callsign: ").strip().upper()
 
@@ -51,18 +56,35 @@ def get_callsign():
         else:
             print("Invalid callsign")
 
+    if DEBUG:
+        print(f"[DEBUG (get_callsign)] Got callsign: {callsign}")
+
     return callsign
 
 
 # gets data of the planes using this callsign
 def get_flight(callsign):
+    if DEBUG:
+        print("[DEBUG (get_flight)] Getting flight using callsign")
+
     url = f"https://api.adsb.lol/v2/callsign/{callsign}"
 
     try:
+        if DEBUG:
+            print(f"[DEBUG (get_flight)] Sending request to {url}")
+
         response = requests.get(url, headers=headers, timeout=5)
+
+        if DEBUG:
+            print(f"[DEBUG (get_flight)] Response received, status: {response.status_code}")
 
         if 200 <= response.status_code < 300:
             return response.json()
+        elif response.status_code == 404:
+            print("404")
+            print("Flight not found, flight doesn't exist")
+            print("Callsign may be incorrect")
+            exit(1)
         else:
             print("get_flight_error")
             print(response.status_code)
@@ -77,15 +99,34 @@ def get_flight(callsign):
 
 # gets the route of planes using this callsign
 def get_route(callsign):
+    if DEBUG:
+        print(f"[DEBUG (get_route)] Getting route")
+
     leading_filepath = callsign[:2]
+
+    if DEBUG:
+        print(f"[DEBUG (get_route)] Leading filepath: {leading_filepath}")
 
     url = f"https://vrs-standing-data.adsb.lol/routes/{leading_filepath}/{callsign}.json"
 
     try:
+        if DEBUG:
+            print(f"[DEBUG (get_route)] sending request to {url}")
+
         response = requests.get(url, headers=headers, timeout=5)
+
+        if DEBUG:
+            print(f"[DEBUG (get_route)] Response Received, status: {response.status_code}")
 
         if 200 <= response.status_code < 300:
             return response.json()
+        elif response.status_code == 404:
+            print("404")
+            print("Flight not found, route doesn't exist")
+            print("Possible reasons:")
+            print("  - Flight Doesn't have a route")
+            print("  - Flight has a route but adsb.lol doesn't have it in their database")
+            exit(1)
         else:
             print("get_route error")
             print(response.status_code)
@@ -156,6 +197,7 @@ def haversine(
 
     return earthRadius_KM * c
 
+
 def getDistanceRatio(
         dep_lat: float, dep_lon: float,
         dest_lat: float, dest_lon: float,
@@ -211,9 +253,20 @@ def main():
         flight_data = get_flight(callsign)
 
         # data of the actual plane
-        plane_data = flight_data["ac"][0]
+        try:
+            plane_data = flight_data["ac"][0]
+        except IndexError:
+            print("Flight info not found")
+            print("Flight is not transponding information")
+            print("Possible reasons:")
+            print("  - Invalid Callsign")
+            print("  - Flight is not online")
+            print("  - Flight finished flying")
+            print("  - Flight has not started flying")
+            exit(1)
 
-        route_info = get_route(callsign)
+        if isFirst:
+            route_info = get_route(callsign)
 
         depAirport_data  = route_info["_airports"][0]
         destAirport_data = route_info["_airports"][1]
