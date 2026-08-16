@@ -88,43 +88,58 @@ Done!, add to path to run anywhere or run from home like:
    If installing uv:
 
    **Windows:**
-   ```shell
-   powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
-   ```
+```shell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
 
-   **Arch Linux:**
-   ```shell
-   sudo pacman -Syu python python-uv
-   ```
+   **Arch Linux:** 
+```shell
+sudo pacman -Syu python python-uv 
+```
    
    **Other distros:**  
    - Option 1:
-   ```shell
-   pip install uv
-   ```
+```shell  
+pip install uv 
+```
    
    - Option 2:
-   ```shell
-   curl -LsSf https://astral.sh/uv/install.sh | sh
-   ```
+```shell 
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
 
 
 2. **Clone the repository:**  
-   ```shell
-   git clone https://github.com/MiniGun1239/Track.git
-   cd Track
-   ```
+```shell
+git clone https://github.com/MiniGun1239/Track.git
+cd Track
+```
    
 3. **Build**:  
-   ```shell
-   uv run pyinstaller --onefile src/main.py
-   ```
+```shell
+uv run pyinstaller --onefile src/main.py
+```
+   
+   In docker of ubuntu 20.04 for older glib versions:
+```shell
+docker run --rm -v "$(pwd)":/app -w /app ubuntu:20.04 bash -c "
+  apt-get update && apt-get install -y curl ca-certificates binutils && \
+  curl -LsSf https://astral.sh/uv/install.sh | sh && \
+  export PATH=\"/root/.local/bin:\$PATH\" && \
+  rm -rf .venv && \
+  uv sync --python 3.14 && \
+  uv pip install --python 3.14 --force-reinstall pyinstaller && \
+  uv run --python 3.14 pyinstaller --onefile src/main.py
+"
+mv dist/main track
+chmod +x track
+```
 
 4. **Done!:**  
    Now test the binary with: 
-   ```shell
-   ./track
-   ```
+```shell
+.track
+```
 
 ## Contributors
 *   **[![Me✨✨](https://img.shields.io/badge/GitHub-MiniGun1239-orange?style=plastic)](https://www.github.com/MiniGun1239)**
