@@ -26,7 +26,7 @@ Track any plane you desire
 
 ## Getting Started
 
-Follow these simple steps to setup your local copy of track.
+Follow these simple steps to set up your local copy of track.
 
 ### Prerequisites
 
@@ -101,7 +101,7 @@ Done!, add to path to run anywhere or run from home like:
 
 1. **Pre-requisites:**  
    - Need to install Python, no extra dependencies needed except for pyinstaller to compile
-   - And uv, or not, pip would also work, but i used uv
+   - And uv, or not, pip would also work, but I used uv
    
    If installing uv:
 
@@ -197,7 +197,7 @@ Enter callsign: ups9
 
 ### Grievance
 
-This project was meant to be in rust, but i couldn't get rust to work in time so i switched to python, 
+This project was meant to be in rust, but I couldn't get rust to work in time, so I switched to python, 
 keeping the archived Rust files in rust_src if anyone wants to take a look, and/or help.
 
 
