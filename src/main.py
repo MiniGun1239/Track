@@ -205,7 +205,7 @@ def outputShi(
         # Move cursor up 4 lines and clear below
         sys.stdout.write("\x1b[4A\r\x1b[J")
 
-    bar_length = 100
+    bar_length = 50
     filled_blocks = int(round(bar_length * progress))
     bar = "█" * filled_blocks + " " * (bar_length - filled_blocks)
 
