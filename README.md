@@ -4,9 +4,9 @@ Track planes progress
 [![Time Spent](https://hackatime.hackclub.com/api/v1/badge/U0AJWQ44PGQ/MiniGun1239/Track)](https://hackatime.hackclub.com/my/projects/Track)
 [![Track](https://img.shields.io/badge/GitHub-Track-green?style=plastic)](https://www.github.com/MiniGun1239/Track)
 
-> Fun with chemistry and statistics
+> Fun with airplanes
 
-Fun chem app ("Fun" in very, very deep quotes, and very subjective)
+Track any plane you desire
 
 ---
 
@@ -30,7 +30,18 @@ Follow these simple steps to setup your local copy of track.
 
 ### Prerequisites
 
-None (Unless you want to build it from source)
+- For main executable (Linux):
+  - glib version >= 2.44
+- For the other executable (Linux):
+  - glib version >= 2.31
+
+Check glib version by running:
+```shell
+$ ldd --version
+```
+
+>The main executable should work on any rolling release distro  
+>The other one should work on any distro newer than ubuntu 20.04
 
 ### How to get this for yourselves:
 
@@ -49,8 +60,15 @@ Or download from command line, like this:
 
 #### Linux
 
+Regular version:
 ```shell
-curl -L https://github.com/MiniGun1239/Track/releases/download/Release-1.1.0/track-1.1.0-x86_64-Linux -o track
+curl -L https://github.com/MiniGun1239/Track/releases/download/Release-1.2.0/track-1.2.0-x86_64-Linux -o track
+chmod +x track
+```
+
+Legacy version:
+```shell
+curl -L https://github.com/MiniGun1239/Track/releases/download/Release-1.2.0/track-1.2.0-Legacy-x86_64-Linux -o track
 chmod +x track
 ```
 
@@ -64,7 +82,7 @@ Done!, add to path to run anywhere or run from home like:
 #### Windows
 
 ```shell
-curl -L https://github.com/MiniGun1239/Track/releases/download/Release-1.1.0/track-1.1.0-x86_64-Windows.exe -o track.exe
+curl -L https://github.com/MiniGun1239/Track/releases/download/Release-1.2.0/track-1.2.0-x86_64-Windows.exe -o track.exe
 ```
 
 > Always check what you are running, don't run random commands you find on the internet.
