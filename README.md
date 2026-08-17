@@ -201,3 +201,7 @@ This project was meant to be in rust, but I couldn't get rust to work in time, s
 keeping the archived Rust files in rust_src if anyone wants to take a look, and/or help.
 
 
+### AI Usage
+
+AI was used for debugging issues with glib version and to get the docker code to use ubuntu
+
