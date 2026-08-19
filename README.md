@@ -198,7 +198,7 @@ Enter callsign: ups9
 ### Grievance
 
 This project was meant to be in rust, but I couldn't get rust to work in time, so I switched to python, 
-keeping the archived Rust files in rust_src if anyone wants to take a look, and/or help.
+keeping the archived Rust files in rust_src and the [rust branch of this repo](https://github.com/MiniGun1239/Track/tree/Rust-Version) if anyone wants to take a look, and/or help.
 
 
 ### AI Usage
